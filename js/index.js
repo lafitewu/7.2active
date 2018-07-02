@@ -37,7 +37,7 @@ $(function() {
 		    $("html, body").animate({scrollTop: $($(this).attr("href")).offset().top -0+ "rem"}, 500);
 		    return false;
 		});
-		$(".tudi").click(function() {
+		$(".tudi,.xuan_tudi,.new_tudi").click(function() {
 			$(".home_page").hide();
 			$(".tudi_all").fadeIn(400);
 		});
@@ -58,14 +58,14 @@ $(function() {
 	var uid = getQueryString('uid');
 	var token = getQueryString('token');
 	var uid1 = "12345678";
-	var token1 = "b5da0a7d-3165-4ef2-a430-d3ed8e77923a";
-	var hostname = "http://jiayou88.cn";
+	var token1 = "eb6451cd-9522-40fe-9408-388522333e62";
+	var hostname = "http://callback.ytoutiao.net";
 	var testname = "http://5ishenma.cn:8084";
 	function Ajaxfn() {
-		var Url1 = hostname+"/yfax-htt-api/api/htt/queryHolidayActivityRanking";
-		var Url2 = hostname+"/yfax-htt-api/api/htt/queryHolidayActivityInviteUser";
-		var Url4 = hostname+"/yfax-htt-api/api/htt/queryHolidayActivityStudentList";
-		$.get(Url1,{"phoneNum": uid,"access_token": token},function(res){
+		var Url1 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityRanking";
+		var Url2 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityInviteUser";
+		var Url4 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityStudentList";
+		$.get(Url1,{"phoneNum": uid1,"access_token": token1},function(res){
 			
 			var now_rank = res.data.userRanking,
 				up_rank = res.data.newRealUserGap;
@@ -80,7 +80,10 @@ $(function() {
 
 		    $(".rank_page_now span").text(now_rank);
 		    $(".rank_page_now font").text(up_rank);
-		    for(var i = 0; i < 3; i++) {
+		    
+		    // 702active新增 如何rankingList 为空，则不执行以下代码，防止代码报错。
+		    if(res.data.rankingList.length !== 0) {
+		    	for(var i = 0; i < 3; i++) {
 		    	var name = res.data.rankingList[i].phoneNum,
 		    		tudi = res.data.rankingList[i].realNewUsers,
 		    		pic = res.data.rankingList[i].wechatHeadImgurl || "images/default_quesiton_icon.png";
@@ -97,17 +100,21 @@ $(function() {
 
 		    	$(".r_page_web_name").eq(i).text(name);
 		    	$(".r_duti_num").eq(i).text(tudi);	
+			    }
+			    // 排行榜渲染
+			    for(var j = 3; j < 30; j++) {
+			    	var name = res.data.rankingList[j].phoneNum,
+			    		tudi = res.data.rankingList[j].realNewUsers;
+			    	$(".r_false").before("<tr><td>"+(j+1)+"</td><td>"+name+"</td><td>"+tudi+"</td></tr>");
+			    }
+		    }else {
+		    	console.error("rankingList数组没有值！")
 		    }
-		    // 排行榜渲染
-		    for(var j = 3; j < 30; j++) {
-		    	var name = res.data.rankingList[j].phoneNum,
-		    		tudi = res.data.rankingList[j].realNewUsers;
-		    	$(".r_false").before("<tr><td>"+(j+1)+"</td><td>"+name+"</td><td>"+tudi+"</td></tr>");
-		    }
+		    
 		});
 
 		// 九宫格 
-		$.get(Url2,{"phoneNum": uid,"access_token": token}, function(res){
+		$.get(Url2,{"phoneNum": uid1,"access_token": token1}, function(res){
 			// var Img = res.data.headImgUr || "images/default_list_header_icon.png";
 			// $(".a_mian_pic img").attr("src",Img);
 			console.log(res);
@@ -120,9 +127,9 @@ $(function() {
 				indexs,
 				curStep = parseFloat(res.data.curStep);
 				// curStep = 15;
-			$(".tudi_num1 font").text(invite_tudi);
-			$(".tudi_num2 font").text(use_tudi);
-			$(".tudi_num3 font").text(income);
+			$(".new_title_left .new_t_l_font span").text(invite_tudi);
+			$(".new_title_right .new_t_l_font span").text(use_tudi);
+			$(".new_t_t_middle span").text(income);
 			$(".a_mian_oder").text(use_tudi);
 			console.log(curStep);
 			for(var i = 0; i < 13; i++) {
@@ -146,8 +153,8 @@ $(function() {
 			if($(".aw_tudi font").eq(indexs+1).text() == 0) {
 				$(".a_mian_fill").css("width","50%");
 				$(".award_con_list img").eq(0).attr("src","images/default_selected_reward_img_1.png");
-				$(".lafite_list1 .aw_con_list_font div").css("color","#ffc107");
-				$(".lafite_list1 .aw_con_list_font div span").css("color","#ffc107");
+				$(".lafite_list1 .aw_con_list_font div").css("color","#FFEE2D");
+				$(".lafite_list1 .aw_con_list_font div span").css("color","#FFEE2D");
 				$(".lafite_list1 .aw_con_list_font .aw_tudi").css("color","white");
 			}else {
 				// 即将完成样式
@@ -157,22 +164,17 @@ $(function() {
 					$(".lafite_list"+(indexs+2)+" img").attr("src","images/default_selected_reward_img_1.png");
 				}
 				
-				// $(".lafite_list"+(indexs+2)+" .aw_con_list_font div").css("color","#FFEE2D");
-				// $(".lafite_list"+(indexs+2)+" .aw_con_list_font .aw_lafite_num span").css("color","#ffc107");
-				// $(".lafite_list"+(indexs+2)+" .aw_con_list_font .aw_tudi").css("color","white");
+				$(".lafite_list"+(indexs+2)+" .aw_con_list_font div").css("color","#FFEE2D");
+				$(".lafite_list"+(indexs+2)+" .aw_con_list_font div span").css("color","#FFEE2D");
+				$(".lafite_list"+(indexs+2)+" .aw_con_list_font .aw_tudi").css("color","white");
 			}
 			
 			// 已完成 
 			for(var j = 0;j < indexs+1; j++) {
-				$(".lafite_list"+(j+1)+" .aw_con_list_font").text("");
-				$(".lafite_list"+(j+1)+" img").attr("src","images/default_all_done_reward_img_1.png");
-				if(curStep == 28888) {
-					$(".lafite_list13 img").attr("src","images/default_all_done_reward_img_2.png");
-				}
-				
+				$(".lafite_list"+(j+1)+" .aw_con_list_font div").html('<img src="images/default_already_img.png"/>');
 			}
 
-			console.log(res);
+			// console.log(res);
 			
 		});
 
@@ -180,7 +182,7 @@ $(function() {
 			function showpage() {
 				$(".table_page_middle span").text(page);
 				// 收徒总榜
-				$.post(Url4,{"phoneNum": uid,"access_token": token,"curPage": page},function(res){
+				$.post(Url4,{"phoneNum": uid1,"access_token": token1,"curPage": page},function(res){
 					$(".table_page_middle font").text(Math.ceil(res.data.totalCount/10));
 					console.log(res);
 					if(Math.ceil(res.data.totalCount/10) == 1) {
@@ -190,22 +192,26 @@ $(function() {
 						$(".table_page_middle span").text("0");
 						$(".table_page_right").css("color","#939393");
 					}
-					for(var i = 0; i < 10; i++) {
-						var name = res.data.studentslist[i].nickName,
-							status = res.data.studentslist[i].isValid,
-							data = res.data.studentslist[i].registerDate,
-							status2;
-							// console.log(status);
-							if(status == 0) {
-								status2 = "无效";
-							}else if(status == 1) {
-								status2 = "有效";
-							}else if (status == 2) {
-								status2 = "异常";
-							}
-						$(".tudi_false").before("<tr class='fuck'><td>"+name+"</td><td>"+data+"</td><td>"+status2+"</td></tr>");
+					console.log(res.data);
+					// 702active新增 当徒弟列表为空时不报错
+					if(res.data.studentslist.length !== 0) {
+						for(var i = 0; i < 10; i++) {
+							var name = res.data.studentslist[i].nickName,
+								status = res.data.studentslist[i].isValid,
+								data = res.data.studentslist[i].registerDate,
+								status2;
+								if(status == 0) {
+									status2 = "无效";
+								}else if(status == 1) {
+									status2 = "有效";
+								}else if (status == 2) {
+									status2 = "异常";
+								}
+							$(".tudi_false").before("<tr class='fuck'><td>"+name+"</td><td>"+data+"</td><td>"+status2+"</td></tr>");
+						}
+					}else {
+						console.error("studentslist没有值！");
 					}
-					
 				});
 			}
 			showpage();

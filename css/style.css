@@ -163,7 +163,7 @@ a:hover{color:#c00; text-decoration:none;}
 /* 首页 */
 .home_page {
 	width: 100%;
-	background: #407b37;
+	background: #EC362E;
 }
 		.top_banner img {
 			width: 100%;
@@ -173,10 +173,10 @@ a:hover{color:#c00; text-decoration:none;}
 		z-index: 88;
 		position: fixed;
 		right: -4.5vw;
-		top: 56vw;
+		top: 36vw;
 		width: 22vw;
 		height: 8vw;
-		background: #1A5011;
+		background: #D7191F;
 		border: .5vw solid white;
 		text-align: center;
 		color: white;
@@ -185,7 +185,7 @@ a:hover{color:#c00; text-decoration:none;}
 		font-size: 4vw;
 	}
 	.xuan_tudi {
-		top: 68vw;
+		top: 48vw;
 		width: 30vw;
 	}
 	.xuan_home {
@@ -263,19 +263,112 @@ a:hover{color:#c00; text-decoration:none;}
 				right: 0;
 				letter-spacing: .5vw;
 			}
-
+	/*702新徒弟*/
+	.tuDi {
+		width: 100%;
+		height: 95vw;
+		background: #EC362E;
+	}
+		.new_tudi {
+			position: relative;
+			width: 92%;
+			height: 85vw;
+			margin-left: 4%;
+			background: white;
+			border-radius: 5px;
+		}
+			.new_tudi_pic {
+				position: absolute;
+				width: 94%;
+				left: 3%;
+				top: 3vw;
+			}
+			.new_tudi_title {
+				width: 80%;
+				height: 46vw;
+				margin-left: 10%;
+				border-bottom: 1px solid #E7E7E7; 
+			}
+				.new_t_t_top {
+					position: relative;
+					width: 100%;
+					height: 8vw;
+					top: 13vw;
+					background: #EC362E;
+					border-radius: 90px;
+					text-align: center;
+					color: white;
+					line-height: 8vw;
+					font-size: 3.5vw;
+				}
+				.new_t_t_middle {
+					position: relative;
+					width: 100%;
+					top: 19vw;
+					color: #D7191F;
+					text-align: center;
+				}
+					.new_t_t_middle font {
+						font-size: 5vw;
+					}
+					.new_t_t_middle span {
+						font-size: 7vw;
+						font-weight: bold;
+					}
+				.new_t_t_bottom {
+					position: relative;
+					width: 100%;
+					top: 21vw;
+					color: #232323;
+					font-size: 3.5vw;
+					text-align: center;
+				}
+			.new_title_icon {
+				width: 100%;
+				height: 39vw;
+			}
+				.new_title_left,.new_title_right {
+					float: left;
+					width: 50%;
+					height: 100%;
+					text-align: center;
+				}
+				.new_title_left img,.new_title_right img {
+					width: 30%;
+					margin-top: 5vw;
+				}
+				.new_t_l_font {
+					margin-top: 3vw;
+					font-size: 4vw; 
+				}
+	.rank_bg {
+		background: #BB1419;
+		padding: 6vw 0;
+	}
 	.rank {
 		z-index: 10;
 		position: relative;
-		width: 82%;
-		height: 65vw;
-		margin: 0 auto;
-		margin-top: -10vw;
+		width: 92%;
+		height: 45vw;
+		margin-right: 4%;
 	}
+		.new_rank_title {
+			width: 100%;
+			text-align: center;
+			font-size: 4vw;
+			color: white;
+			margin-left: 4%;
+		}
+			.new_rank_title img {
+				width: 6%;
+			}
+			.new_rank_title span {
+				margin: 0 2vw;
+			}
 		.rank_borad {
 			position: absolute;
 			width: 120%;
-			right: -10%;
+			right: -4%;
 			bottom: -1.7vw;
 		}
 			.rank_borad img {
@@ -285,27 +378,27 @@ a:hover{color:#c00; text-decoration:none;}
 			position: absolute;
 			bottom: 0;
 			float: left;
-			width: 30%;
+			width: 25%;
 			border-radius: 5%;
 			background: white;
 		}
 		.rank_one {
-			height:55.5%;
+			/*height:55.5%;*/
 			left: 8%;
 			background: url(../images/reward_card_img_1.png)no-repeat;
 			background-size: 100%; 
 		}
 		.rank_two {
-			height: 51.5%;
-			left: 43%;
-			width: 28%;
+			/*height: 51.5%;*/
+			left: 42%;
+			/*width: 28%;*/
 			background: url(../images/reward_card_img_2.png)no-repeat;
 			background-size: 100%; 
 		}
 		.rank_three {
-			height: 46.5%;
+			/*height: 46.5%;*/
 			right: 0%;
-			width: 25%;
+			/*width: 25%;*/
 			background: url(../images/reward_card_img_3.png)no-repeat;
 			background-size: 100%; 
 		}
@@ -349,11 +442,11 @@ a:hover{color:#c00; text-decoration:none;}
 	.go_rank {
 		width: 90%;
 		margin: auto;
-		margin-top: 1.5%;
+		margin-top: 8.5%;
 		height: 12vw;
 		border-radius: 90px;
-		background: #24641B;
-		color: white;
+		background: #FFCA14;
+		color: black;
 		text-align: center;
 		font-size: 4vw;
 		line-height: 12vw;
@@ -397,7 +490,7 @@ a:hover{color:#c00; text-decoration:none;}
 			height: 92%;
 			margin: auto;
 			top: 5%;
-			background: #D2EFCD;
+			background: white;
 			border-radius: 5px;
 		}
 			.award_main_title {
@@ -419,14 +512,14 @@ a:hover{color:#c00; text-decoration:none;}
 					margin-top: 3vw;
 					width: 70%;
 					height: 3vw;
-					background: #8EB987;
+					background: #FFE3AC;
 					border-radius: 90px;
 				}
 					.a_mian_fill {
 						position: absolute;
 						width: 20%;
 						height: 100%;
-						background: #235A1B;
+						background: #FE9728;
 						border-radius: 90px;
 					}
 				.a_mian_pic {
@@ -521,19 +614,17 @@ a:hover{color:#c00; text-decoration:none;}
 						text-align: center;
 					}
 						.aw_con_list_font div,.aw_con_list_font div span {
-							font-size: 4vw;
+							font-size: 4.8vw;
 							margin-top: 2vw;
-							color: #ffc107;
-							font-weight: bold;
+							color: #A6641D;
 						}
 							.award_con_list .aw_con_list_font div img {
 								width: 68%;
 							}
 						.aw_con_list_font span {
 							display: inline-block;
-							color: #1E5716;
+							color: #A6641D;
 							font-size: 3vw;
-							margin-top: 3.5vw;
 						}
 				.award_con_middle {
 					margin-left: 11%;
@@ -554,7 +645,7 @@ a:hover{color:#c00; text-decoration:none;}
 					}
 	.rules_bg {
 		padding: 5vw 0;
-		background: #1A5011;
+		background: #BB1419;
 		margin-top: 10vw;
 	}
 	.rules {
@@ -589,9 +680,9 @@ a:hover{color:#c00; text-decoration:none;}
 			width: 100%;
 		}
 	.display_block {
-		height: 14vw;
+		height: 22vw;
 		width: 100%;
-		background: #407b37;
+		background: #EC362E;
 	}
 	/* 底部btn */
 	.footer {
@@ -599,20 +690,37 @@ a:hover{color:#c00; text-decoration:none;}
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		height: 13vw;
-		background: #C62828;
-		text-align: center;
-		line-height: 13vw;
-		color: white;
-		font-size: 4.5vw;
-		letter-spacing: .5vw;
-		border-radius: 20px 20px 0 0;
+		height: 22vw;
+		box-shadow: 1px 1px 4px 4px rgba(16,16,16,.3);
+		background: #C4282C;
 	}
+		.footer_btn {
+			float: left;
+			width: 86%;
+			height: 11vw;
+			color: #C11C20;
+			text-align: center;
+			line-height: 11vw;
+			margin-left: 7%;
+			margin-top: 5.5vw;
+			font-size: 4vw;
+			font-weight: bold;
+			border-radius: 90px;
+		}
+		.footer_left {
+			background: white;
+		}
+		.footer_right {
+			background: #FFE033;
+		}
+			.footer_right a {
+				color: #C11C20;
+			}
 
 /* 邀请总榜*/
 .rank_page {
 	width: 100%;
-	background: #407B37;
+	background: #EC362E;
 	padding-bottom: 5vw;
 	display: none;
 }
@@ -635,7 +743,7 @@ a:hover{color:#c00; text-decoration:none;}
 			width: 84%;
 			height: 10vw;
 			line-height: 10vw;
-			background: #1A5011;
+			background: #EC362E;
 			border-radius: 7px;
 			text-align: center;
 			margin: 5vw auto;
@@ -840,7 +948,7 @@ a:hover{color:#c00; text-decoration:none;}
 	.tudi_all {
 		position: relative;
 		width: 100%;
-		background: #407B37;
+		background: #EC362E;
 		padding-bottom: 15vw;
 		display: none;
 	}
@@ -863,7 +971,7 @@ a:hover{color:#c00; text-decoration:none;}
 				width: 100%;
 				height: 17vw;
 				border-radius: 10px 10px 0 0;
-				background: #D2EFCD;
+				background: #D7191F;
 			}
 			.tudi_con_table {
 				z-index: 29;
@@ -887,7 +995,7 @@ a:hover{color:#c00; text-decoration:none;}
 					.tudi_con_table table .tudi_con_tab_tr {
 						font-size: 4vw;
 						font-weight: bold;
-						color: #1A5011;
+						color: white;
 					}
 						.tudi_con_table table tr td {
 							width: 33%;
@@ -963,14 +1071,14 @@ a:hover{color:#c00; text-decoration:none;}
 						width: 80%;
 						margin-left: 10%;
 						height: 12vw;
-						color: white;
+						color: #D6151F;
 						line-height: 12vw;
 						text-align: center;
 						border-radius: 90px;
 						margin-top: 8vw;
 						font-size: 4vw;
 						letter-spacing: .5vw;
-						background: #C62828;
+						background: #FFCA14;
 					}
 					.active_all_top {
 						position: relative;
@@ -978,8 +1086,8 @@ a:hover{color:#c00; text-decoration:none;}
 						height: 14vw;
 						line-height: 14vw;
 						text-align: center;
-						background: #D2EFCD;
-						border-radius: 10px 10px 0 0;
+						background: #D7191F;
+						border-radius: 8px 8px 0 0;
 					}
 						.active_all_top img {
 							position: absolute;
@@ -988,7 +1096,7 @@ a:hover{color:#c00; text-decoration:none;}
 						}
 						.active_all_top span {
 							font-size: 4.2vw;
-							color: #1A5011;
+							color: white;
 							margin-left: 9%;
 							font-weight: bold;
 							letter-spacing: .2vw;
