@@ -60,7 +60,7 @@ $(function() {
 	var uid1 = "12345678";
 	var token1 = "eb6451cd-9522-40fe-9408-388522333e62";
 	var hostname = "http://callback.ytoutiao.net";
-	var testname = "http://5ishenma.cn:8084";
+	var testname = "http://182.92.82.188:8084";
 	function Ajaxfn() {
 		var Url1 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityRanking";
 		var Url2 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityInviteUser";
