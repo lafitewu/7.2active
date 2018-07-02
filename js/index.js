@@ -65,7 +65,7 @@ $(function() {
 		var Url1 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityRanking";
 		var Url2 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityInviteUser";
 		var Url4 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityStudentList";
-		$.get(Url1,{"phoneNum": uid1,"access_token": token1},function(res){
+		$.get(Url1,{"phoneNum": uid,"access_token": token},function(res){
 			
 			var now_rank = res.data.userRanking,
 				up_rank = res.data.newRealUserGap;
@@ -114,7 +114,7 @@ $(function() {
 		});
 
 		// 九宫格 
-		$.get(Url2,{"phoneNum": uid1,"access_token": token1}, function(res){
+		$.get(Url2,{"phoneNum": uid,"access_token": token}, function(res){
 			// var Img = res.data.headImgUr || "images/default_list_header_icon.png";
 			// $(".a_mian_pic img").attr("src",Img);
 			console.log(res);
@@ -182,7 +182,7 @@ $(function() {
 			function showpage() {
 				$(".table_page_middle span").text(page);
 				// 收徒总榜
-				$.post(Url4,{"phoneNum": uid1,"access_token": token1,"curPage": page},function(res){
+				$.post(Url4,{"phoneNum": uid,"access_token": token,"curPage": page},function(res){
 					$(".table_page_middle font").text(Math.ceil(res.data.totalCount/10));
 					console.log(res);
 					if(Math.ceil(res.data.totalCount/10) == 1) {
