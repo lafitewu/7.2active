@@ -62,9 +62,9 @@ $(function() {
 	var hostname = "http://callback.ytoutiao.net";
 	var testname = "http://182.92.82.188:8084";
 	function Ajaxfn() {
-		var Url1 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityRanking";
-		var Url2 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityInviteUser";
-		var Url4 = testname+"/yfax-htt-api/api/htt/queryHolidayActivityStudentList";
+		var Url1 = hostname+"/yfax-htt-api/api/htt/queryHolidayActivityRanking";
+		var Url2 = hostname+"/yfax-htt-api/api/htt/queryHolidayActivityInviteUser";
+		var Url4 = hostname+"/yfax-htt-api/api/htt/queryHolidayActivityStudentList";
 		$.get(Url1,{"phoneNum": uid,"access_token": token},function(res){
 			
 			var now_rank = res.data.userRanking,
